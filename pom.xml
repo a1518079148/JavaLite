@@ -1,0 +1,106 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.ac</groupId>
+  <artifactId>Javalite</artifactId>
+  <version>1.0.1</version>
+  <packaging>war</packaging>
+ 
+  <name>Javalite</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+ 
+  <dependencies>
+  
+	<!-- 将网址生成二维码 -->
+  	<dependency>
+	    <groupId>net.glxn.qrgen</groupId>
+	    <artifactId>javase</artifactId>
+	    <version>2.0</version>
+	</dependency>
+	
+	<!-- 解决在maven install时出现找不到javax.servlet.xxx -->
+	<dependency>
+		<groupId>org.apache.geronimo.specs</groupId>
+		<artifactId>geronimo-servlet_2.4_spec</artifactId>
+		<version>1.1.1</version>
+		<scope>provided</scope>
+	</dependency>
+	
+	<!-- 网页抓取内容 -->
+	<dependency>
+	    <groupId>org.jsoup</groupId>
+	    <artifactId>jsoup</artifactId>
+	    <version>1.11.3</version>
+	</dependency>
+	
+  	<dependency>
+		<groupId>org.javalite</groupId>
+		<artifactId>activeweb-testing</artifactId>
+		<version>2.2</version>
+		<exclusions>
+			<exclusion>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	<dependency>
+		<groupId>org.javalite</groupId>
+		<artifactId>activeweb</artifactId>
+		<version>2.2</version>
+		<exclusions>
+			<exclusion>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	<dependency>
+		<groupId>org.mongodb</groupId>
+		<artifactId>mongodb-driver-sync</artifactId>
+		<version>3.9.0</version>
+	</dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-log4j12</artifactId>
+		<version>1.7.25</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-lang3</artifactId>
+		<version>3.8.1</version>
+	</dependency>
+
+	<dependency>
+		<groupId>commons-httpclient</groupId>
+		<artifactId>commons-httpclient</artifactId>
+		<version>3.1</version>
+	</dependency>
+	
+  </dependencies>
+  <build>
+  	<plugins>
+  		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.6.1</version>
+			<configuration>
+				<source>1.8</source>
+				<target>1.8</target>
+				<encoding>utf8</encoding>
+			</configuration>
+		</plugin>
+  	</plugins>
+  </build>
+</project>
